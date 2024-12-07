@@ -23,27 +23,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
+        
+        direction.y += Gravity * Time.deltaTime;
 
         // isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
-        if (isGrounded)
+        // SALTO
+        if (controller.isGrounded)
         {
-            direction.y = -2;
-            if (SwipeManager.swipeUp)
+            if (Input.GetKeyDown(KeyCode. UpArrow))
                 Jump();
         }
-        else
-            direction.y += Gravity * Time.deltaTime;
-
-
-        //Gather the inputs on which lane we should be
-        // if (SwipeManager.swipeRight)
+        // DERECHA
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
             if (desiredLane == 3)
                 desiredLane = 2;
         }
-        // if (SwipeManager.swipeLeft)
+        // IZQUIERDA
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             desiredLane--;
