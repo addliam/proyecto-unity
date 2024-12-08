@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 753230967579408086}
   - component: {fileID: 753230967580399318}
   - component: {fileID: 8921188118593461831}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barricade_01
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3360870842508326368}
   - component: {fileID: 3360870842509415904}
   - component: {fileID: 3725143211997574132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barricade_01 (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 6187009765149749541}
   - component: {fileID: 6187009765148598537}
   - component: {fileID: 9102219331894238613}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cart_2w
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 6187009765150443757}
   - component: {fileID: 6187009765149705171}
   - component: {fileID: 6187009765148313237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cart_wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 7401576615406272491}
   - component: {fileID: 7401576615405532373}
   - component: {fileID: 7401576615404335507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cart_wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 7401576615405487651}
   - component: {fileID: 7401576615404410383}
   - component: {fileID: 60774923816503502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cart_2w (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

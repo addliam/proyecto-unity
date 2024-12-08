@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             // Cuando colisione con un obstaculo
             HealthManager.health--;
             PlayerManager.LoseLife();
-            StartCoroutine(AllowPassThrough(2, hit.collider));
+            StartCoroutine(AllowPassThrough(1, hit.collider));
         }
     }
 
