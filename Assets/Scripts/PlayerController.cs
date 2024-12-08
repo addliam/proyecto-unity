@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
     private CharacterController controller;
     private Vector3 direction;
     public float forwardSpeed;
@@ -14,12 +15,14 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     public float jumpForce;
-    public float Gravity = -20;
+    public float Gravity;
     
     // manager
     private PlayerManager playerManager = new PlayerManager();
     void Start()
     {
+        isGrounded = true;
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
 
@@ -27,13 +30,21 @@ public class PlayerController : MonoBehaviour
     {
         direction.z = forwardSpeed;
 
-        // isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
+        // chequear si toco suelo
+        isGrounded = CheckIfGrounded();
+
         // SALTO
-        if (controller.isGrounded)
+        if (isGrounded)
         {
-            direction.y = -1;
-            if (Input.GetKeyDown(KeyCode. UpArrow))
+            if (direction.y < 0)
+                direction.y = -2;   
+            animator.SetBool("IsJumping", false);
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
                 Jump();
+                // jumping 
+                animator.SetBool("IsJumping", true);
+            }
         }
         else{
             direction.y += Gravity * Time.deltaTime;
@@ -90,5 +101,9 @@ public class PlayerController : MonoBehaviour
             PlayerManager.LoseLife();
             // FindObjectOfType<AudioManager>().PlaySound("GameOver");
         }
+    }
+    private bool CheckIfGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
     }
 }
