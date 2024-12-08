@@ -23,15 +23,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
-        
-        direction.y += Gravity * Time.deltaTime;
 
         // isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
         // SALTO
         if (controller.isGrounded)
         {
+            direction.y = -1;
             if (Input.GetKeyDown(KeyCode. UpArrow))
                 Jump();
+        }
+        else{
+            direction.y += Gravity * Time.deltaTime;
         }
         // DERECHA
         if (Input.GetKeyDown(KeyCode.RightArrow))
