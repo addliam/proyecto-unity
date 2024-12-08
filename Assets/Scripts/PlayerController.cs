@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce;
     public float Gravity = -20;
+    
+    // manager
+    private PlayerManager playerManager = new PlayerManager();
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -68,7 +71,6 @@ public class PlayerController : MonoBehaviour
         else
             controller.Move(diff);
 
-
     }
     private void FixedUpdate()
     {
@@ -82,9 +84,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // if(hit.transform.tag == "Obstacle")
-        // {
-        //     PlayerManager.gameOver = true;
-        // }
+        Debug.Log(hit.transform.tag);
+        if(hit.transform.tag == "Obstacle")
+        {
+            PlayerManager.LoseLife();
+            // FindObjectOfType<AudioManager>().PlaySound("GameOver");
+        }
     }
 }
