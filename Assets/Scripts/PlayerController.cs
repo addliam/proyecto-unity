@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float Gravity;
     
+    private bool isColliding = false; 
+
     // manager
     private PlayerManager playerManager = new PlayerManager();
     void Start()
@@ -96,12 +99,31 @@ public class PlayerController : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Debug.Log(hit.transform.tag);
-        if(hit.transform.tag == "Obstacle")
+        if(hit.transform.tag == "Obstacle" && !isColliding)
         {
+            isColliding = true;
+            // Cuando colisione con un obstaculo
+            HealthManager.health--;
             PlayerManager.LoseLife();
-            // FindObjectOfType<AudioManager>().PlaySound("GameOver");
+            StartCoroutine(AllowPassThrough(2, hit.collider));
         }
     }
+
+    IEnumerator AllowPassThrough(float duration, Collider obstacleCollider)
+    {
+        Debug.Log("Ignoring collision with obstacle");
+        if (obstacleCollider != null)
+        {
+            obstacleCollider.enabled = false;
+        }
+        yield return new WaitForSeconds(duration);
+        if (obstacleCollider != null)
+        {
+            obstacleCollider.enabled = true;
+        }
+        isColliding = false;
+    }
+
     private bool CheckIfGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);

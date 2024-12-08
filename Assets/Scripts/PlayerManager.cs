@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static int lives = 1;
+    public static int lives;
     public static bool gameOver;
     public GameObject gameOverPanel;
 
     private void Start()
     {
+        lives = 3;
         gameOver = false;
         Time.timeScale = 1;
     }
