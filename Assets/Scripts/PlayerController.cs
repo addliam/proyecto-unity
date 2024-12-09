@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             if (direction.y < 0)
                 direction.y = -2;   
             animator.SetBool("IsJumping", false);
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (SwipeManager.swipeUp)
             {
                 Jump();
                 // jumping 
@@ -53,14 +53,14 @@ public class PlayerController : MonoBehaviour
             direction.y += Gravity * Time.deltaTime;
         }
         // DERECHA
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (SwipeManager.swipeRight)
         {
             desiredLane++;
             if (desiredLane == 3)
                 desiredLane = 2;
         }
         // IZQUIERDA
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (SwipeManager.swipeLeft)
         {
             desiredLane--;
             if (desiredLane == -1)

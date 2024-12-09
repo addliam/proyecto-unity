@@ -5,7 +5,7 @@ public class Events : MonoBehaviour
 {
     public void ReplayGame()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Escena2");
     }
     public void QuitGame()
     {
