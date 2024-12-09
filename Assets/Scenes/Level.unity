@@ -301,9 +301,10 @@ MonoBehaviour:
   - {fileID: 1149436499012530050, guid: 0bc1f63382c397e40abd52e42c684d05, type: 3}
   - {fileID: 6978619777782122094, guid: 815a0e3ba9539a148a7e58a0d7064b97, type: 3}
   - {fileID: 1149436499012530050, guid: 50bf8d66c33aa9e48943b0f3d2104243, type: 3}
-  tileLength: 30
-  numberOfTiles: 4
-  totalNumOfTiles: 4
+  - {fileID: 6978619777782122094, guid: fc4d6d2a7fb277e45a11d212ed4782f2, type: 3}
+  tileLength: 35
+  numberOfTiles: 5
+  totalNumOfTiles: 5
   zSpawn: 0
   playerTransform: {fileID: 543450651815128358}
 --- !u!1 &120620879
@@ -1732,9 +1733,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 311092939}
-  - {fileID: 1524292407}
   - {fileID: 1258275572}
   - {fileID: 1653381398}
+  - {fileID: 1524292407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9073,7 +9074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03bc73a78dcb03947b174a2abb5f3898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 10
+  forwardSpeed: 9
   laneDistance: 2.5
   isGrounded: 1
   groundLayer:
